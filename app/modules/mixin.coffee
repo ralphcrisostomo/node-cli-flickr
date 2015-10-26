@@ -12,7 +12,7 @@ mixin   =
     (callback) ->
       item      = null
       arr       = []
-      file      = "#{process.cwd()}/#{name}/manifest.json"
+      file      = "#{process.cwd()}/#{name}/.manifest.json"
       manifest  = require(file)
       manifest?.forEach (_item) ->
         if parseInt(_item?.id) is parseInt(id)

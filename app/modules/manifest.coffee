@@ -23,9 +23,8 @@ class Manifest
 
 
   _downloadManifest : (flickr, user, page, callback) ->
-
-    per_page  = 500
-    name      = ''
+    per_page    = 500
+    name        = user.username._content
     flickr.people.getPhotos
       api_key   : process.env.FLICKR_API_KEY
       user_id   : user.id
@@ -45,10 +44,11 @@ class Manifest
       return @_downloadManifest(flickr, user, page + 1, callback) if @manifest.length isnt result.photos.total
       mixin.write 'cyan', "\n------------------\n"
       mixin.write 'green', "\nDownloading manifest : done"
-      mixin.write 'blue', "\nWriting `manifest.json`..."
-      file = "#{process.cwd()}/#{name}/manifest.json"
+      mixin.write 'blue', "\nWriting `.manifest.json`..."
+      file = "#{process.cwd()}/#{name}/.manifest.json"
+      console.log file
       fs.writeFile file, JSON.stringify(@manifest, null, 4), (err) =>
-        mixin.write 'green', "\nWriting `manifest.json` : done"
+        mixin.write 'green', "\nWriting `.manifest.json` : done"
         callback err, @manifest
 
 
@@ -61,7 +61,7 @@ class Manifest
         @_getUserId(flickr, name)
       ], (err, result) =>
         user = result?.user
-        mixin.write 'blue', "\nCreating `manifest.json`..."
+        mixin.write 'blue', "\nCreating `.manifest.json`..."
         mixin.write 'cyan', "\n\n------------------"
         @_downloadManifest(flickr, user, 1, callback)
 

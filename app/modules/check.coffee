@@ -48,18 +48,18 @@ class Check
 
   _checkManifest : (flickr,name) ->
     (callback) ->
-      mixin.write 'blue', '\nChecking `manifest.json`...'
+      mixin.write 'blue', '\nChecking `.manifest.json`...'
       directory = "#{process.cwd()}/#{name}"
       #
       # Create manifest
       #
-      if not fs.existsSync("#{directory}/manifest.json")
-        mixin.write 'red', '\n`manifest.json` do not exist.'
+      if not fs.existsSync("#{directory}/.manifest.json")
+        mixin.write 'red', '\n`.manifest.json` do not exist.'
         manifest = new Manifest()
         manifest.create(flickr, name, 1) callback
 
       else
-        mixin.write 'green', '\nChecking `manifest.json` : done'
+        mixin.write 'green', '\nChecking `.manifest.json` : done'
         callback null, {}
 
 
@@ -89,7 +89,7 @@ class Check
           arr       = []
           ids       = input
 
-          manifest  = "#{process.cwd()}/#{name}/manifest.json"
+          manifest  = "#{process.cwd()}/#{name}/.manifest.json"
           manifest  = require(manifest)
           manifest?.forEach (item) ->
             item.status = 'created'
@@ -100,14 +100,14 @@ class Check
           callback null, arr
       ,
         #
-        # Update `manifest.json`
+        # Update `.manifest.json`
         #
         (input, callback) ->
-          mixin.write 'blue', "\nUpdating `manifest.json`..."
+          mixin.write 'blue', "\nUpdating `.manifest.json`..."
           manifest  = input
-          file      = "#{process.cwd()}/#{name}/manifest.json"
+          file      = "#{process.cwd()}/#{name}/.manifest.json"
           fs.writeFile file, JSON.stringify(manifest, null, 4), (err) ->
-            mixin.write 'green', "\nUpdating `manifest.json` : done"
+            mixin.write 'green', "\nUpdating `.manifest.json` : done"
             callback err, manifest
 
       ], (err, result) ->

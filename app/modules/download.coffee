@@ -54,7 +54,7 @@ class Download
 
   _getId : (name) ->
     (callback) ->
-      file      = "#{process.cwd()}/#{name}/manifest.json"
+      file      = "#{process.cwd()}/#{name}/.manifest.json"
       manifest  = require(file)
       completed = _.filter(manifest, { 'status': 'completed'})
       created   = _.find(manifest, { 'status': 'created'})
@@ -108,7 +108,7 @@ class Download
     (input, callback) ->
       photo     = input
       arr       = []
-      file      = "#{process.cwd()}/#{name}/manifest.json"
+      file      = "#{process.cwd()}/#{name}/.manifest.json"
       manifest  = require(file)
       manifest?.forEach (item) ->
         item.status = 'completed' if parseInt(item?.id) is parseInt(photo?.id)
