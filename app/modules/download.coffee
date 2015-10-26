@@ -45,7 +45,10 @@ class Download
           mixin.write 'cyan', '\nStatus \t\t: Failed'
           callback 'retry', null
         else
-          _.assign photo, _.findWhere result.sizes.size, { label : 'Large 2048' }
+          size = _.findWhere result.sizes.size, { label : 'Large 2048' }
+          size = _.findWhere result.sizes.size, { label : 'Large 1600' } if not size
+          size = _.findWhere result.sizes.size, { label : 'Large' }      if not size
+          _.assign photo, size
           callback err, photo
 
 
