@@ -39,7 +39,7 @@ class Download
       flickr.photos.getSizes
         api_key   : process.env.FLICKR_API_KEY
         photo_id  : photo.id
-      , (err, result) ->
+      , (err, result) =>
         if err
           @retry++
           mixin.write 'cyan', '\nStatus \t\t: Failed'
