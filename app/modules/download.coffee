@@ -40,8 +40,13 @@ class Download
         api_key   : process.env.FLICKR_API_KEY
         photo_id  : photo.id
       , (err, result) ->
-        _.assign photo, _.findWhere result.sizes.size, { label : 'Large 2048' }
-        callback err, photo
+        if err
+          @retry++
+          mixin.write 'cyan', '\nStatus \t\t: Failed'
+          callback 'retry', null
+        else
+          _.assign photo, _.findWhere result.sizes.size, { label : 'Large 2048' }
+          callback err, photo
 
 
   _getId : (name) ->
