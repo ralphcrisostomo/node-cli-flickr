@@ -1,0 +1,8 @@
+'use strict'
+
+class <%= name.capitalize() %>
+
+  constructor : ->
+    console.log 'hello world'
+
+module.exports = <%= name.capitalize() %>

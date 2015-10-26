@@ -1,0 +1,43 @@
+{
+  "h264": {
+    "mobile": {
+      "profile": 116,
+      "origin": "ns3.av-secure",
+      "url": "https://avvimeo-a.akamaihd.net/47960/241/132983252.mp4?token2=1440171800_cdd9321e477ddf11d7171bbcdefd64ca&aksessionid=25f92115735020de",
+      "height": 270,
+      "width": 480,
+      "id": 132983252,
+      "bitrate": 410,
+      "availability": 22
+    },
+    "hd": {
+      "profile": 113,
+      "origin": "ns3.av-secure",
+      "url": "https://avvimeo-a.akamaihd.net/26391/613/132983248.mp4?token2=1440171800_ada47862394d0aa2159f956655aa57d2&aksessionid=fc6b78d5eb2c5db3",
+      "height": 720,
+      "width": 1280,
+      "id": 132983248,
+      "bitrate": 2658,
+      "availability": 22
+    },
+    "sd": {
+      "profile": 112,
+      "origin": "ns3.av-secure",
+      "url": "https://avvimeo-a.akamaihd.net/05784/030/132983249.mp4?token2=1440171800_a53d01aa26fccfa58f1030db9745f812&aksessionid=584134cf95336cba",
+      "height": 360,
+      "width": 640,
+      "id": 132983249,
+      "bitrate": 860,
+      "availability": 22
+    }
+  },
+  "hls": {
+    "origin": "ns",
+    "cdn": "akamai",
+    "all": "https://av00vimeo1-i.akamaihd.net/i/,05784/030/132983249,47960/241/132983252,26391/613/132983248,.mp4.csmil/master.m3u8?primaryToken=1440171800_27d5a2cfca1cc424ed506bf1396792a1",
+    "hd": "https://av00vimeo1-i.akamaihd.net/i/,26391/613/132983248,.mp4.csmil/master.m3u8?primaryToken=1440171800_7a0dc62c3fd8713f20cd182aa2e29ed9"
+  },
+  "codecs": [
+    "h264"
+  ]
+}
