@@ -76,6 +76,7 @@ class Download
     (input, callback) =>
       photo   = input
       url     = photo.source
+      mixin.write 'cyan', "\nSize \t\t: #{photo?.label}"
       mixin.write 'cyan', "\nUrl \t\t: #{url}"
       request
         .get(url)
