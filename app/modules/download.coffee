@@ -45,7 +45,6 @@ class Download
           mixin.write 'cyan', '\nStatus \t\t: Failed'
           callback 'retry', null
         else
-          console.log result.sizes.size
           size = _.findWhere result.sizes.size, { label : 'Large 2048' }
           size = _.findWhere result.sizes.size, { label : 'Large 1600' } if not size
           size = _.findWhere result.sizes.size, { label : 'Large' }      if not size
